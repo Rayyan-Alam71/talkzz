@@ -3,6 +3,7 @@ import { AirVent, Send } from "lucide-react";
 import axios from 'axios'
 import Loading from './component/Loading';
 
+
 const ChatPreview = () => {
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ const ChatPreview = () => {
     setLoading(true);
     console.log(loading)
     try{
-      const res = await axios.post("http://localhost:3000/api", {
+      const res = await axios.post(import.meta.env.VITE_SECRET, {
         message : userInput
       })
       const response = res.data;
